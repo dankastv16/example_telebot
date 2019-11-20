@@ -54,10 +54,10 @@ def webhook():
     return "!", 200
 
 
-@server.route("/show_logs")
+@server.route('/show_logs')
 def show_logs():
     messages_list = list(mongo_logs.find())
-    result = '<div>There are {} messages total. The last 10 are: </div><table>'.format(len(messages_list))
+    result = '<div> There are {} messages total. The last 10 are: </div><table>.format(len(messages_list))
     row_template = '<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>'
     result += row_template.format('time', 'user', 'text from user', 'response from bot')
     for message in messages_list[-10:]:
